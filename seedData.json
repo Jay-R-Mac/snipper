@@ -43,5 +43,20 @@
     "id": 9,
     "language": "Rust",
     "code": "const square = num => num * num;"
+  },
+  {
+    "id": 10,
+    "language": "Rust",
+    "code": "const square = num => num * Enc;"
+  },
+  {
+    "id": 11,
+    "language": "Rust",
+    "code": "const square = num => num * Enc;"
+  },
+  {
+    "id": 12,
+    "language": "Rust",
+    "code": "a701d0637fdb07527c45a217d972d2467faee4f0b7410bc7a8cb2a968961ab7584c7e0029f58fbc335a799450dc7a593"
   }
 ]

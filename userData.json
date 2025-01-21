@@ -1,0 +1,26 @@
+[
+  {
+    "email": "john.doe@example.com",
+    "password": "password123"
+  },
+  {
+    "email": "jane.smith@example.com",
+    "password": "securePass456"
+  },
+  {
+    "email": "alice.johnson@example.com",
+    "password": "qwerty789"
+  },
+  {
+    "email": "bob.brown@example.com",
+    "password": "letMeIn123"
+  },
+  {
+    "email": "charlie.davis@example.com",
+    "password": "passWord!"
+  },
+  {
+    "email": "example@email.com",
+    "password": "$2b$10$i/ajWOawckZN5Krz9cGLGe0BdPLn2mywo7airPSnlJancrCysjcNK"
+  }
+]
