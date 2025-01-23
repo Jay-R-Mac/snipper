@@ -1,9 +1,10 @@
 const fs = require('fs')
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 3002
 const crypto = require('crypto')
 const bcrypt = require('bcrypt')
+const {generateToken, verifyToken} = require('./jwtConfig')
 
 let snippets = []
 let users = []
@@ -100,6 +101,35 @@ app.post('/users', async (req, res) => {
         }
         res.status(201).send(newUser)
     })
+})
+
+app.post('/login', async (req, res) => {
+    let loggedInUser = {
+        email: req.body.email,
+        password: req.body.password
+    }
+    token = generateToken(loggedInUser)
+    console.log(token)
+    const user = users.find(user => user.email === loggedInUser.email)
+    if (user && await bcrypt.compare(loggedInUser.password, user.password)) {
+        res.status(200).send(token)
+    } else {
+        res.status(401).send('Invalid email or password')
+    }
+})
+
+app.get('/secure', (req, res) => {
+    let token = req.headers.authorization
+    console.log(token)
+    if (!token) {
+        return res.status(401).send('Access denied. No token provided.')
+    }
+    try {
+        verifyToken(token)
+        res.status(200).send('Welcome to the secure route')
+    } catch (error) {
+        res.status(400).send('Invalid token')
+    }
 })
 
 app.listen(port, () => {
